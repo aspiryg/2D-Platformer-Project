@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,19 +7,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;       // How fast the player moves left/right
     
     //Jump realated variables for the Jump Feature (later)
-    //public float jumpForce = 8f;      // How strong the jump is (vertical speed)
-    //public Transform groundCheck;      // Empty child object placed at the player's feet
-    //public float groundCheckRadius = 0.2f; // Size of the circle used to detect ground
-    //public LayerMask groundLayer;      // Which layer counts as "ground" (set in Inspector)
+    public float jumpForce = 8f;      // How strong the jump is (vertical speed)
+    public Transform groundCheck;      // Empty child object placed at the player's feet
+    public float groundCheckRadius = 0.2f; // Size of the circle used to detect ground
+    public LayerMask groundLayer;      // Which layer counts as "ground" (set in Inspector)
 
     // Private variables are used internally by the script.
     private Rigidbody2D rb;            // Reference to the Rigidbody2D component
-    //private bool isGrounded;           // True if player is standing on ground
+    private bool isGrounded;           // True if player is standing on ground
 
+    private Animation animator;
     void Start()
     {
         // Grab the Rigidbody2D attached to the Player object once at the start.
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animation>();
     }
 
     void Update()
@@ -29,6 +32,36 @@ public class PlayerController : MonoBehaviour
         // Apply horizontal speed while keeping the current vertical velocity.
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+
+        SetAnimation(moveInput);
+    }
+
+        private void FixedUpdate()
+      { 
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+      }
+        private void SetAnimation(float moveInput)
+        {
+            if (isGrounded)
+            {
+                if(moveInput == 0)
+                {
+                animator.Play("Player_Idle");
+                }
+            else
+               {
+                animator.Play("Player_Run");
+               }
+            }
+          else
+           {
+            animator.Play("Player_Fall");
+           }
+       }
         /* Jump realated code for the Jump Feature (later)
         // --- Ground check ---
         // Create an invisible circle at the GroundCheck position.
@@ -44,5 +77,5 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
         */
-    }
+    
 }
