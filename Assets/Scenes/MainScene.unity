@@ -144,6 +144,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798232185}
     - target: {fileID: 2814106726149596258, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
+      propertyPath: extreJumpsValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814106726149596258, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}

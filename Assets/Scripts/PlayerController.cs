@@ -17,11 +17,15 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;      // Reference to the Animator component
 
+    public int extraJumpsValue = 1;
+    private int extraJumps;
     void Start()
     {
         // Grab the Rigidbody2D attached to the Player object once at the start.
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        extraJumps = extraJumpsValue;
     }
 
     void Update()
@@ -32,6 +36,10 @@ public class PlayerController : MonoBehaviour
         // Apply horizontal speed while keeping the current vertical velocity.
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
+        if (isGrounded)
+        {
+            extraJumps = extraJumpsValue;
+        }
         /* Jump realated code for the Jump Feature (later)
         // --- Ground check ---
         // Create an invisible circle at the GroundCheck position.
@@ -41,13 +49,22 @@ public class PlayerController : MonoBehaviour
 
         // --- Jump ---
         // If player is grounded AND the Jump button (Spacebar by default) is pressed:
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            }
+            else if (extraJumps >0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                extraJumps--;
+            }
             // Set vertical velocity to jumpForce (launch upward).
             // Horizontal velocity stays the same.
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
         }
-       
+
         //
         SetAnimation(moveInput);
     }
@@ -68,7 +85,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(rb.linearVelocity.y > 0)
+            if (rb.linearVelocity.y > 0)
             {
                 animator.Play("Player_Jump");
             }
