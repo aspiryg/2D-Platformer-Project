@@ -1,31 +1,20 @@
 fileFormatVersion: 2
-guid: 05f530537638e424ab965d3169d0a8b9
+guid: f73dfe034c22cfc41bd7e8799020a5ac
+AssetOrigin:
+  serializedVersion: 1
+  productId: 188518
+  packageName: Simple 2D Platformer Assets Pack
+  packageVersion: 1.0
+  assetPath: Assets/Simple 2D Platformer BE2/Sprites/Objects.png
+  uploadId: 417220
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8596640243658272642
-    second: Idle 0
+      213: 7145198348311737387
+    second: Spike
   - first:
-      213: -7642239419928554605
-    second: Idle 1
-  - first:
-      213: -3876759189950653258
-    second: Idle 2
-  - first:
-      213: -5720429097031363069
-    second: Idle 3
-  - first:
-      213: -7911572535675539837
-    second: Run 0
-  - first:
-      213: 5398807837072792716
-    second: Run 1
-  - first:
-      213: -3763824636803078212
-    second: Run 2
-  - first:
-      213: 8273598715916126338
-    second: Run 3
+      213: -3708508325519384304
+    second: Finish
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,95 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle 0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 17
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28f241131c66d4770800000000000000
-      internalID: 8596640243658272642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle 1
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 17
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 393dba6ecbf41f590800000000000000
-      internalID: -7642239419928554605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle 2
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 17
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bc92438e0cf23ac0800000000000000
-      internalID: -3876759189950653258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle 3
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 17
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30613ac5b04fc90b0800000000000000
-      internalID: -5720429097031363069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run 0
+      name: Spike
       rect:
         serializedVersion: 2
         x: 0
@@ -247,17 +148,20 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 0, y: -1}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
-      spriteID: 38ea25432b2743290800000000000000
-      internalID: -7911572535675539837
+      spriteID: b2434d87a08d82360800000000000000
+      internalID: 7145198348311737387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 1
+      name: Finish
       rect:
         serializedVersion: 2
         x: 17
@@ -272,52 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8c915baf1b6cea40800000000000000
-      internalID: 5398807837072792716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run 2
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb72d763f6534cbc0800000000000000
-      internalID: -3763824636803078212
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run 3
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2880f4c523ab1d270800000000000000
-      internalID: 8273598715916126338
+      spriteID: 011a6d2935bb88cc0800000000000000
+      internalID: -3708508325519384304
       vertices: []
       indices: 
       edges: []
@@ -326,7 +186,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 2e43b95c445f0cc48b6e0e0e1eef64fc
     internalID: 0
     vertices: []
     indices: 
@@ -336,14 +196,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle 0: 8596640243658272642
-      Idle 1: -7642239419928554605
-      Idle 2: -3876759189950653258
-      Idle 3: -5720429097031363069
-      Run 0: -7911572535675539837
-      Run 1: 5398807837072792716
-      Run 2: -3763824636803078212
-      Run 3: 8273598715916126338
+      Finish: -3708508325519384304
+      Spike: 7145198348311737387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

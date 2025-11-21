@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;       // How fast the player moves left/right
 
     //Jump realated variables for the Jump Feature (later)
-    public float jumpForce = 8f;      // How strong the jump is (vertical speed)
+    public float jumpForce = 10f;      // How strong the jump is (vertical speed)
     public Transform groundCheck;      // Empty child object placed at the player's feet
     public float groundCheckRadius = 0.2f; // Size of the circle used to detect ground
     public LayerMask groundLayer;      // Which layer counts as "ground" (set in Inspector)
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         // Create an invisible circle at the GroundCheck position.
         // If this circle overlaps any collider on the "Ground" layer, player is grounded.
         */
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        
 
         // --- Jump ---
         // If player is grounded AND the Jump button (Spacebar by default) is pressed:
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
-            else if (extraJumps >0)
+            else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
@@ -68,6 +68,12 @@ public class PlayerController : MonoBehaviour
         //
         SetAnimation(moveInput);
     }
+
+    private void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
 
 
     private void SetAnimation(float moveInput)

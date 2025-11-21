@@ -1,5 +1,12 @@
 fileFormatVersion: 2
-guid: 3a0cf0d186787d4448577aec58bc1060
+guid: e85c6e02fda4a004b84664f435ad4d73
+AssetOrigin:
+  serializedVersion: 1
+  productId: 188518
+  packageName: Simple 2D Platformer Assets Pack
+  packageVersion: 1.0
+  assetPath: Assets/Simple 2D Platformer BE2/Sprites/Platforms.png
+  uploadId: 417220
 TextureImporter:
   internalIDToNameTable:
   - first:
