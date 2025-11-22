@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         // --- Horizontal movement ---
         // Get input from keyboard (A/D or Left/Right arrows).
         float moveInput = Input.GetAxis("Horizontal");
+        Debug.Log("Move Input: " + moveInput);
         // Apply horizontal speed while keeping the current vertical velocity.
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
