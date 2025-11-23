@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6850604551699252271, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
+      propertyPath: healthImage
+      value: 
+      objectReference: {fileID: 888143761}
     - target: {fileID: 9012998970268681161, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.014426
@@ -977,11 +981,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 3883298416164446047, guid: 7b49bd21336ad8841b8c9318807e324d, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
