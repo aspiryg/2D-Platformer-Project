@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public int health = 100;
     // Public variables appear in the Inspector, so you can tweak them without editing code.
     public float moveSpeed = 4f;       // How fast the player moves left/right
+    public Image healthImage;
+
 
     //Jump realated variables for the Jump Feature (later)
     public float jumpForce = 8f;      // How strong the jump is (vertical speed)
@@ -68,6 +71,8 @@ public class PlayerController : MonoBehaviour
             // Set vertical velocity to jumpForce (launch upward).
             // Horizontal velocity stays the same.
 
+            /////////////////////////healthImage.fillAmount = health / 100f;
+
         }
 
         //
@@ -105,6 +110,8 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Damage")
         {
             health -= 25;
+            healthImage.fillAmount = health / 100f;
+
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             StartCoroutine(BlinkRed());
 
