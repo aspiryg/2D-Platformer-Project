@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;       // How fast the player moves left/right
     public Image healthImage;
 
+    public AudioClip jumpClip;
+    public AudioClip hurtClip;
 
     //Jump realated variables for the Jump Feature (later)
     public float jumpForce = 8f;      // How strong the jump is (vertical speed)
@@ -26,12 +28,16 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public int extraJumpsValue = 1;
     private int extraJumps;
+
+    private AudioSource audioSource;
+
     void Start()
     {
         // Grab the Rigidbody2D attached to the Player object once at the start.
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         extraJumps = extraJumpsValue;
     }
@@ -63,11 +69,13 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                PlaySFX(jumpClip);
             }
             else if (extraJumps >0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
+                PlaySFX(jumpClip);
             }
             // Set vertical velocity to jumpForce (launch upward).
             // Horizontal velocity stays the same.
@@ -110,6 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Damage")
         {
+            PlaySFX(hurtClip);
             health -= 25;
             healthImage.fillAmount = health / 100f;
 
@@ -134,4 +143,12 @@ public class PlayerController : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+    public void PlaySFX(AudioClip audioClip, float volume = 1f)
+    {
+        audioSource.clip = audioClip;
+        audioSource.volume = volume;
+        audioSource.Play();
+    }
+
 }
