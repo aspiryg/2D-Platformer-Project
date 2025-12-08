@@ -1328,9 +1328,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 3907b9a66967648e0bd353f41fa2b1e5, type: 3}
     - target: {fileID: 6850604551699252271, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
+      propertyPath: jumpForce
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850604551699252271, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
       propertyPath: healthImage
       value: 
       objectReference: {fileID: 888143761}
+    - target: {fileID: 6850604551699252271, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
+      propertyPath: jumpContinuesForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9012998970268681161, guid: 2b35bc7ade2c93542b79aacb174016cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.014426

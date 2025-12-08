@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip hurtClip;
 
     //Jump realated variables for the Jump Feature (later)
-    public float jumpForce = 8f;      // How strong the jump is (vertical speed)
+    public float jumpForce = 8.5f;      // How strong the jump is (vertical speed)
+    public float jumpContinuesForce = 1f;
     public Transform groundCheck;      // Empty child object placed at the player's feet
     public float groundCheckRadius = 0.2f; // Size of the circle used to detect ground
     public LayerMask groundLayer;      // Which layer counts as "ground" (set in Inspector)
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpBufferCounter = jumpBufferTime;
@@ -86,9 +87,9 @@ public class PlayerController : MonoBehaviour
 
         // --- Jump ---
         // If player is grounded AND the Jump button (Spacebar by default) is pressed:
-        if ( jumpBufferCounter > 0f)
+        if (jumpBufferCounter > 0f)
         {
-            if ( coyoteTimeCounter > 0f)
+            if (coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
@@ -104,12 +105,18 @@ public class PlayerController : MonoBehaviour
             }
             // Set vertical velocity to jumpForce (launch upward).
             // Horizontal velocity stays the same.
-
-            /////////////////////////healthImage.fillAmount = health / 100f;
-
+            //healthImage.fillAmount = health / 100f;
         }
 
+        if (Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
+        {
+            Debug.Log("Jump continues force applied");
+            rb.AddForceY(jumpContinuesForce);
+        }
+
+
         //
+        healthImage.fillAmount = health / 100f;
         SetAnimation(moveInput);
     }
 
