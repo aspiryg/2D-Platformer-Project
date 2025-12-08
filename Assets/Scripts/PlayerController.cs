@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour
     public float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
+
+    public float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
+
     void Start()
     {
         // Grab the Rigidbody2D attached to the Player object once at the start.
@@ -63,6 +67,16 @@ public class PlayerController : MonoBehaviour
         {
             coyoteTimeCounter -= Time.deltaTime;
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
         /* Jump realated code for the Jump Feature (later)
         // --- Ground check ---
         // Create an invisible circle at the GroundCheck position.
@@ -72,19 +86,21 @@ public class PlayerController : MonoBehaviour
 
         // --- Jump ---
         // If player is grounded AND the Jump button (Spacebar by default) is pressed:
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ( jumpBufferCounter > 0f)
         {
             if ( coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
                 coyoteTime = 0f;
+                jumpBufferCounter = 0f;
             }
             else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
                 PlaySFX(jumpClip);
+                jumpBufferCounter = 0f;
             }
             // Set vertical velocity to jumpForce (launch upward).
             // Horizontal velocity stays the same.
