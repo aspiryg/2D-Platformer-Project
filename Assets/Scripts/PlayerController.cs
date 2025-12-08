@@ -155,4 +155,13 @@ public class PlayerController : MonoBehaviour
         audioSource.Play();
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Strawberry")
+        {
+            extraJumps = 2;
+            Destroy(collision.gameObject);
+        }
+    }
 }
