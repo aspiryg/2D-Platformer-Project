@@ -59,6 +59,21 @@ public class PlayerController : MonoBehaviour
         // Apply horizontal speed while keeping the current vertical velocity.
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
+
+        // Flip the player's sprite based on movement direction
+        if (rb.linearVelocityX != 0)
+        {
+            if (rb.linearVelocityX > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
+        }
+
+
         if (isGrounded)
         {
             coyoteTimeCounter = coyoteTime;
