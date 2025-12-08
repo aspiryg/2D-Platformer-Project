@@ -685,7 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbb650b29d1b104d836f3049a9de397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NextLevel
-  nextLevelName: Level3
+  nextLevelName: Level 3
+  nextLevelValue: 3
 --- !u!1 &447971812
 GameObject:
   m_ObjectHideFlags: 0
