@@ -110,13 +110,21 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
         {
-            Debug.Log("Jump continues force applied");
+            //Debug.Log("Jump continues force applied");
             rb.AddForceY(jumpContinuesForce);
         }
 
+        if (rb.linearVelocityY < 0)
+        {
+            rb.gravityScale = 3f;
+        }
+        else
+        {
+            rb.gravityScale = 2f;
+        }
 
-        //
-        healthImage.fillAmount = health / 100f;
+            //
+            healthImage.fillAmount = health / 100f;
         SetAnimation(moveInput);
     }
 
