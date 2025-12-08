@@ -138,9 +138,15 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 2f;
         }
 
-            //
-            healthImage.fillAmount = health / 100f;
+        //
+        //healthImage.fillAmount = health / 100f;
         SetAnimation(moveInput);
+
+        // Die if fall off the map
+        if (transform.position.y < -10f)
+        {
+            Die();
+        }
     }
 
 
