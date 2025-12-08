@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
     void Start()
     {
         // Grab the Rigidbody2D attached to the Player object once at the start.
@@ -53,7 +56,12 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+            coyoteTimeCounter = coyoteTime;
             extraJumps = extraJumpsValue;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
         /* Jump realated code for the Jump Feature (later)
         // --- Ground check ---
@@ -66,12 +74,13 @@ public class PlayerController : MonoBehaviour
         // If player is grounded AND the Jump button (Spacebar by default) is pressed:
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded)
+            if ( coyoteTimeCounter > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 PlaySFX(jumpClip);
+                coyoteTime = 0f;
             }
-            else if (extraJumps >0)
+            else if (extraJumps > 0)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 extraJumps--;
@@ -116,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Damage")
+        if (collision.gameObject.tag == "Damage")
         {
             PlaySFX(hurtClip);
             health -= 25;
@@ -125,7 +134,7 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             StartCoroutine(BlinkRed());
 
-            if(health <= 0)
+            if (health <= 0)
             {
                 Die();
             }
@@ -158,7 +167,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Strawberry")
+        if (collision.gameObject.tag == "Strawberry")
         {
             extraJumps = 2;
             Destroy(collision.gameObject);
