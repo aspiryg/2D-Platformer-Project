@@ -189,8 +189,9 @@ public class PlayerController : MonoBehaviour
         }
 
         // Variable jump height - hold for higher jump
-        if (Input.GetKey(KeyCode.Space) && rb.linearVelocity.y > 0)
+        if (Input.GetKey(KeyCode.Space) && rb.linearVelocityY > 0)
         {
+            //Debug.Log("Applying continued jump force");
             rb.AddForceY(jumpContinuesForce);
         }
     }

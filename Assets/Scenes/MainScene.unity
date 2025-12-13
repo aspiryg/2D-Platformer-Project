@@ -7118,13 +7118,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3464168702167857080, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
+      propertyPath: jumpForce
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464168702167857080, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
       propertyPath: healthImage
       value: 
       objectReference: {fileID: 888143761}
     - target: {fileID: 3464168702167857080, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
+      propertyPath: extraJumpsValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464168702167857080, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
       propertyPath: dashCooldownImage
       value: 
       objectReference: {fileID: 881934138}
+    - target: {fileID: 3464168702167857080, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
+      propertyPath: jumpContinuesForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8290234885841905816, guid: 5741475a7b7fe61438b767e5d1c04dbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.18

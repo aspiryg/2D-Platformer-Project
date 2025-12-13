@@ -185,7 +185,7 @@ MonoBehaviour:
   health: 100
   healthImage: {fileID: 0}
   moveSpeed: 4
-  jumpForce: 8.5
+  jumpForce: 10
   jumpContinuesForce: 1
   extraJumpsValue: 1
   groundCheck: {fileID: 5553014197574362444}
